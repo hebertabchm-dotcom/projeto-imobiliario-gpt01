@@ -558,6 +558,7 @@ textarea:focus-visible{
 }
 .select{
   position: relative;
+  z-index: 5;
 }
 .select__button{
   width: 100%;
@@ -634,13 +635,15 @@ textarea:focus-visible{
   background: linear-gradient(135deg, rgba(220,201,166,0.75), rgba(220,201,166,0.25));
   color: #101012;
 }
-.select.is-open .select__list{
+.select.is-open .select__list,
+.select:focus-within .select__list{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
 }
-.select.is-open .select__icon{
+.select.is-open .select__icon,
+.select:focus-within .select__icon{
   transform: translateY(1px) rotate(225deg);
 }
 .form__feedback{
@@ -694,25 +697,33 @@ textarea:focus-visible{
    Animações (reveal)
    ========================= */
 .reveal{
+  opacity:1;
+  transform: translateY(0);
+  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);
+}
+.js .reveal{
   opacity:0;
   transform: translateY(16px);
-  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);
 }
 .reveal--d1{ transition-delay: 120ms; }
 .reveal--d2{ transition-delay: 220ms; }
 .reveal--d3{ transition-delay: 320ms; }
-.reveal.is-visible{
+.js .reveal.is-visible{
   opacity:1;
   transform: translateY(0);
 }
 
 .divider.reveal-line{
-  transform: scaleX(0);
+  transform: scaleX(1);
   transform-origin:left;
-  opacity:0.2;
+  opacity:0.85;
   transition: transform 700ms var(--ease-out), opacity 700ms var(--ease-out);
 }
-.divider.reveal-line.is-visible{
+.js .divider.reveal-line{
+  transform: scaleX(0);
+  opacity:0.2;
+}
+.js .divider.reveal-line.is-visible{
   transform: scaleX(1);
   opacity:0.85;
 }
