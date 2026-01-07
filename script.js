@@ -163,4 +163,76 @@
     toggleConcierge();
     window.addEventListener("scroll", toggleConcierge, { passive: true });
   }
+
+  const form = document.getElementById("lead-form");
+  if (form) {
+    const feedback = form.querySelector(".form__feedback");
+    const submitBtn = form.querySelector("button[type=\"submit\"]");
+    const requiredFields = Array.from(form.querySelectorAll("[required]"));
+    const phoneInput = form.querySelector("#lead-phone");
+
+    const setFeedback = (message, isError = false) => {
+      if (!feedback) return;
+      feedback.textContent = message;
+      feedback.style.color = isError ? "rgba(255,160,160,0.95)" : "var(--text-warm)";
+    };
+
+    const formatPhone = (value) => {
+      const digits = value.replace(/\D/g, "").slice(0, 11);
+      if (!digits) return "";
+      if (digits.length <= 2) return `(${digits}`;
+      if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+      return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+    };
+
+    if (phoneInput) {
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = formatPhone(phoneInput.value);
+      });
+    }
+
+    requiredFields.forEach((field) => {
+      field.addEventListener("input", () => {
+        field.classList.remove("is-invalid");
+        setFeedback("");
+      });
+      field.addEventListener("change", () => {
+        field.classList.remove("is-invalid");
+        setFeedback("");
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      let hasError = false;
+      requiredFields.forEach((field) => {
+        const value = field.value.trim();
+        if (!value) {
+          field.classList.add("is-invalid");
+          hasError = true;
+        }
+      });
+
+      if (hasError) {
+        setFeedback("Por favor, preencha os campos obrigatórios.", true);
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Curadoria solicitada";
+      }
+
+      setFeedback("Obrigado. Vamos retornar em até 24h úteis.");
+      form.reset();
+
+      if (submitBtn) {
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Solicitar curadoria";
+        }, 2000);
+      }
+    });
+  }
 })();

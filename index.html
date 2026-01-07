@@ -8,6 +8,13 @@
       name="description"
       content="Residências de alto padrão com atendimento consultivo, discrição e acompanhamento completo do primeiro contato à entrega das chaves."
     />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta property="og:title" content="LuxPrime Imóveis — Alto Padrão" />
+    <meta
+      property="og:description"
+      content="Curadoria imobiliária premium com atendimento consultivo e visitas guiadas exclusivas."
+    />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="styles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +37,7 @@
           <a class="nav__link" href="#contato">Contato</a>
         </nav>
 
-        <a class="btn" href="#contato">Agendar visita</a>
+        <a class="btn btn--primary" href="#contato">Agendar visita</a>
       </div>
     </header>
 
@@ -58,15 +65,17 @@
               das chaves.
             </p>
 
-            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 22px;">
-              <a class="btn" href="#imoveis">Ver destaques</a>
-              <a class="btn" href="#contato" style="border-color: rgba(255,255,255,0.18);">
-                Atendimento personalizado
-              </a>
+            <div class="hero__chips">
+              <span class="chip">Tour 360° sob demanda</span>
+              <span class="chip">Consultoria confidencial</span>
+              <span class="chip">Shortlist em 24h</span>
             </div>
 
-            <div style="margin-top: 18px" class="micro">
-              Tour 360° sob demanda • Atendimento por WhatsApp • Curadoria em 24h
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 22px;">
+              <a class="btn btn--primary" href="#imoveis">Ver destaques</a>
+              <a class="btn btn--ghost" href="#contato">
+                Atendimento personalizado
+              </a>
             </div>
           </div>
 
@@ -205,7 +214,7 @@
           </div>
 
           <div style="display:flex; justify-content:center; margin-top: 22px;">
-            <a class="btn" href="#contato">Quero uma curadoria</a>
+            <a class="btn btn--primary" href="#contato">Quero uma curadoria</a>
           </div>
         </div>
       </section>
@@ -322,29 +331,60 @@
                 </p>
               </div>
 
-              <form class="form" onsubmit="return false;">
-                <label class="field">
+              <form class="form" id="lead-form" novalidate>
+                <label class="field" for="lead-name">
                   <span class="micro">Nome</span>
-                  <input class="input" type="text" placeholder="Seu nome" />
+                  <input
+                    class="input"
+                    id="lead-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Seu nome"
+                    required
+                  />
                 </label>
 
-                <label class="field">
+                <label class="field" for="lead-phone">
                   <span class="micro">WhatsApp</span>
-                  <input class="input" type="tel" placeholder="(21) 9xxxx-xxxx" />
+                  <input
+                    class="input"
+                    id="lead-phone"
+                    name="phone"
+                    type="tel"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    placeholder="(21) 9xxxx-xxxx"
+                    required
+                  />
                 </label>
 
-                <label class="field">
+                <label class="field" for="lead-goal">
                   <span class="micro">Objetivo</span>
-                  <select class="input">
+                  <select class="input" id="lead-goal" name="goal" required>
+                    <option value="">Selecione</option>
                     <option>Comprar</option>
                     <option>Investir</option>
                     <option>Alugar</option>
                   </select>
                 </label>
 
-                <button class="btn" type="button">
+                <label class="field" for="lead-details">
+                  <span class="micro">Detalhes</span>
+                  <textarea
+                    class="input input--area"
+                    id="lead-details"
+                    name="details"
+                    placeholder="Localização, número de quartos, metragem, vista..."
+                    rows="3"
+                  ></textarea>
+                </label>
+
+                <button class="btn btn--primary" type="submit">
                   Solicitar curadoria
                 </button>
+
+                <div class="form__feedback" role="status" aria-live="polite"></div>
 
                 <div class="micro" style="opacity:0.85;">
                   Ao enviar, você concorda em receber contato consultivo.
