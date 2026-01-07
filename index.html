@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LuxPrime Imóveis — Alto Padrão</title>
+    <meta
+      name="description"
+      content="Residências de alto padrão com atendimento consultivo, discrição e acompanhamento completo do primeiro contato à entrega das chaves."
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Fonts (recomendado) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container nav__inner">
+        <a class="nav__brand" href="#top">LuxPrime</a>
+
+        <nav class="nav__links" aria-label="Menu">
+          <a class="nav__link" href="#imoveis">Imóveis</a>
+          <a class="nav__link" href="#curadoria">Curadoria</a>
+          <a class="nav__link" href="#depoimentos">Depoimentos</a>
+          <a class="nav__link" href="#contato">Contato</a>
+        </nav>
+
+        <a class="btn" href="#contato">Agendar visita</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="top">
+      <section class="hero">
+        <!-- Troque a imagem pelo seu arquivo: assets/hero.jpg -->
+        <div
+          class="hero__bg"
+          style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2400&auto=format&fit=crop');"
+          aria-hidden="true"
+        ></div>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="container hero__content">
+          <div class="reveal reveal--d1">
+            <div class="small">Residências de alto padrão</div>
+            <h1 class="display-xl" style="margin: 14px 0 0">
+              Luxo, discrição<br />
+              e curadoria real
+            </h1>
+
+            <p style="max-width: 62ch; margin: 16px 0 0; color: var(--muted)">
+              Selecionamos imóveis com arquitetura marcante e localização estratégica.
+              Atendimento consultivo, visitas guiadas e suporte completo até a entrega
+              das chaves.
+            </p>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 22px;">
+              <a class="btn" href="#imoveis">Ver destaques</a>
+              <a class="btn" href="#contato" style="border-color: rgba(255,255,255,0.18);">
+                Atendimento personalizado
+              </a>
+            </div>
+
+            <div style="margin-top: 18px" class="micro">
+              Tour 360° sob demanda · Atendimento por WhatsApp · Curadoria em 24h
+            </div>
+          </div>
+
+          <div class="divider reveal-line" style="margin-top: 24px"></div>
+
+          <div class="hero__meta reveal reveal--d2">
+            <div class="meta__block">
+              <div class="micro">Regiões</div>
+              <div class="meta__title">Barra · Zona Sul · Niterói</div>
+              <div class="meta__desc">Imóveis selecionados com foco em exclusividade.</div>
+            </div>
+
+            <div class="meta__block" style="text-align:right;">
+              <div class="micro">Especialidade</div>
+              <div class="meta__title">Coberturas · Casas · Condomínios</div>
+              <div class="meta__desc">Arquitetura, vista e acabamentos premium.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST / STATS -->
+      <section class="section">
+        <div class="container">
+          <div class="card reveal reveal--d1" style="padding: 26px;">
+            <div class="stats">
+              <div class="stat">
+                <div class="small">SLA de resposta</div>
+                <div class="stat__value">Até 15 min</div>
+                <div class="stat__desc">Atendimento ágil e consultivo.</div>
+              </div>
+              <div class="stat">
+                <div class="small">Curadoria</div>
+                <div class="stat__value">100%</div>
+                <div class="stat__desc">Somente imóveis alinhados ao perfil.</div>
+              </div>
+              <div class="stat">
+                <div class="small">Visitas guiadas</div>
+                <div class="stat__value">VIP</div>
+                <div class="stat__desc">Agendamento discreto e acompanhado.</div>
+              </div>
+              <div class="stat">
+                <div class="small">Negociação</div>
+                <div class="stat__value">Estratégica</div>
+                <div class="stat__desc">Protegendo seu tempo e seu capital.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMOVEIS (GALERIA) -->
+      <section id="imoveis" class="gallery">
+        <div class="container">
+          <div class="gallery__header reveal reveal--d1">
+            <div>
+              <div class="small">Destaques</div>
+              <div class="h2" style="margin-top:10px;">Imóveis em evidência</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="micro">Seleção semanal</div>
+              <div class="small" style="margin-top:6px;">alto padrão · luxo · vista</div>
+            </div>
+          </div>
+
+          <div class="divider reveal-line" style="margin-bottom: 22px;"></div>
+
+          <div class="gallery__grid">
+            <article class="thumb reveal reveal--d1">
+              <div class="thumb__media">
+                <img
+                  src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop"
+                  alt="Cobertura com vista e área externa"
+                  loading="lazy"
+                />
+              </div>
+              <div class="thumb__caption">
+                <div>
+                  <div class="thumb__title">Cobertura Panorâmica</div>
+                  <div class="thumb__sub">Barra · 4 suítes · 310 m²</div>
+                </div>
+                <div class="micro">R$ 4,9M</div>
+              </div>
+            </article>
+
+            <article class="thumb reveal reveal--d2">
+              <div class="thumb__media">
+                <img
+                  src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1600&auto=format&fit=crop"
+                  alt="Casa contemporânea com iluminação"
+                  loading="lazy"
+                />
+              </div>
+              <div class="thumb__caption">
+                <div>
+                  <div class="thumb__title">Casa Contemporânea</div>
+                  <div class="thumb__sub">Condomínio · 5 quartos · 420 m²</div>
+                </div>
+                <div class="micro">R$ 6,2M</div>
+              </div>
+            </article>
+
+            <article class="thumb reveal reveal--d3">
+              <div class="thumb__media">
+                <img
+                  src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?q=80&w=1600&auto=format&fit=crop"
+                  alt="Apartamento com living amplo e design"
+                  loading="lazy"
+                />
+              </div>
+              <div class="thumb__caption">
+                <div>
+                  <div class="thumb__title">Apartamento Assinado</div>
+                  <div class="thumb__sub">Zona Sul · 3 suítes · 190 m²</div>
+                </div>
+                <div class="micro">R$ 3,1M</div>
+              </div>
+            </article>
+
+            <article class="thumb reveal reveal--d1">
+              <div class="thumb__media">
+                <img
+                  src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1600&auto=format&fit=crop"
+                  alt="Fachada com arquitetura minimalista"
+                  loading="lazy"
+                />
+              </div>
+              <div class="thumb__caption">
+                <div>
+                  <div class="thumb__title">Minimalismo Premium</div>
+                  <div class="thumb__sub">Niterói · 4 quartos · 280 m²</div>
+                </div>
+                <div class="micro">R$ 2,7M</div>
+              </div>
+            </article>
+          </div>
+
+          <div style="display:flex; justify-content:center; margin-top: 22px;">
+            <a class="btn" href="#contato">Quero uma curadoria</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURADORIA -->
+      <section id="curadoria" class="section">
+        <div class="container">
+          <div class="split">
+            <div class="reveal reveal--d1">
+              <div class="small">Método LuxPrime</div>
+              <div class="h2" style="margin-top:10px;">Curadoria que economiza tempo</div>
+              <p style="color:var(--muted); margin-top:14px; max-width: 60ch;">
+                Em vez de você visitar dezenas de imóveis, nós filtramos por
+                arquitetura, localização, perfil de uso e potencial de valorização.
+                Você recebe uma shortlist enxuta — e só visita o que faz sentido.
+              </p>
+
+              <div style="display:grid; gap:12px; margin-top: 18px;">
+                <div class="bullet">
+                  <span class="dot"></span>
+                  <div>
+                    <div class="meta__title">Briefing inteligente</div>
+                    <div class="meta__desc">Entendemos estilo de vida, rotina e prioridades.</div>
+                  </div>
+                </div>
+                <div class="bullet">
+                  <span class="dot"></span>
+                  <div>
+                    <div class="meta__title">Shortlist premium</div>
+                    <div class="meta__desc">Você recebe 3–7 imóveis com fit real (não volume).</div>
+                  </div>
+                </div>
+                <div class="bullet">
+                  <span class="dot"></span>
+                  <div>
+                    <div class="meta__title">Visita guiada + negociação</div>
+                    <div class="meta__desc">Acompanhamos do tour à proposta, com estratégia.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card reveal reveal--d2">
+              <div class="media">
+                <img
+                  src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?q=80&w=2000&auto=format&fit=crop"
+                  alt="Interior premium com luz natural"
+                  loading="lazy"
+                />
+              </div>
+              <div style="padding: 18px 18px 20px;">
+                <div class="micro">Experiência</div>
+                <div class="meta__title" style="margin-top:6px;">Atendimento consultivo</div>
+                <div class="meta__desc" style="margin-top:6px;">
+                  Comunicação clara, discrição e presença em cada etapa.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS -->
+      <section id="depoimentos" class="section">
+        <div class="container">
+          <div class="gallery__header reveal reveal--d1">
+            <div>
+              <div class="small">Confiança</div>
+              <div class="h2" style="margin-top:10px;">O que os clientes dizem</div>
+            </div>
+          </div>
+
+          <div class="divider reveal-line" style="margin-bottom: 22px;"></div>
+
+          <div class="cards3">
+            <article class="card reveal reveal--d1" style="padding: 20px;">
+              <div class="micro">Compra</div>
+              <p style="margin: 12px 0 0; color: var(--text-warm);">
+                “Recebemos uma shortlist perfeita. Em 2 visitas encontramos o imóvel
+                ideal e a negociação foi muito bem conduzida.”
+              </p>
+              <div class="small" style="margin-top: 14px;">— Cliente Zona Sul</div>
+            </article>
+
+            <article class="card reveal reveal--d2" style="padding: 20px;">
+              <div class="micro">Investimento</div>
+              <p style="margin: 12px 0 0; color: var(--text-warm);">
+                “A curadoria poupou semanas. Transparência e atenção aos detalhes.
+                A experiência foi premium de verdade.”
+              </p>
+              <div class="small" style="margin-top: 14px;">— Cliente Barra</div>
+            </article>
+
+            <article class="card reveal reveal--d3" style="padding: 20px;">
+              <div class="micro">Locação</div>
+              <p style="margin: 12px 0 0; color: var(--text-warm);">
+                “Discrição total e rapidez. Encontraram exatamente o padrão que eu
+                queria, sem perda de tempo.”
+              </p>
+              <div class="small" style="margin-top: 14px;">— Cliente Niterói</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA / CONTATO -->
+      <section id="contato" class="section">
+        <div class="container">
+          <div class="card reveal reveal--d1" style="padding: 26px;">
+            <div class="cta">
+              <div>
+                <div class="small">Atendimento VIP</div>
+                <div class="h2" style="margin-top:10px;">Agende uma visita guiada</div>
+                <p style="margin-top: 12px; color: var(--muted); max-width: 60ch;">
+                  Envie seu perfil e preferências. Em até 24h retornamos com uma seleção
+                  de imóveis alinhada ao seu objetivo.
+                </p>
+              </div>
+
+              <form class="form" onsubmit="return false;">
+                <label class="field">
+                  <span class="micro">Nome</span>
+                  <input class="input" type="text" placeholder="Seu nome" />
+                </label>
+
+                <label class="field">
+                  <span class="micro">WhatsApp</span>
+                  <input class="input" type="tel" placeholder="(21) 9xxxx-xxxx" />
+                </label>
+
+                <label class="field">
+                  <span class="micro">Objetivo</span>
+                  <select class="input">
+                    <option>Comprar</option>
+                    <option>Investir</option>
+                    <option>Alugar</option>
+                  </select>
+                </label>
+
+                <button class="btn" type="button">
+                  Solicitar curadoria
+                </button>
+
+                <div class="micro" style="opacity:0.85;">
+                  Ao enviar, você concorda em receber contato consultivo.
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <footer class="footer">
+            <div class="micro">© <span id="year"></span> LuxPrime Imóveis</div>
+            <div class="micro">Alto padrão · Curadoria · Discrição</div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
