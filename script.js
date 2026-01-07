@@ -164,6 +164,116 @@
     window.addEventListener("scroll", toggleConcierge, { passive: true });
   }
 
+  const customSelects = document.querySelectorAll("[data-select]");
+  const closeSelect = (select) => {
+    select.classList.remove("is-open");
+    const button = select.querySelector(".select__button");
+    if (button) button.setAttribute("aria-expanded", "false");
+  };
+
+  customSelects.forEach((select) => {
+    const button = select.querySelector(".select__button");
+    const label = select.querySelector(".select__label");
+    const list = select.querySelector(".select__list");
+    const options = Array.from(select.querySelectorAll(".select__option"));
+    const hiddenInput = select.querySelector("input[type=\"hidden\"]");
+
+    if (!button || !label || !list || !options.length || !hiddenInput) return;
+
+    list.tabIndex = -1;
+
+    const setHighlight = (index) => {
+      options.forEach((option, idx) => {
+        option.classList.toggle("is-highlighted", idx === index);
+      });
+      const highlighted = options[index];
+      if (highlighted) {
+        highlighted.scrollIntoView({ block: "nearest" });
+      }
+    };
+
+    const selectOption = (option) => {
+      const value = option.dataset.value || option.textContent.trim();
+      hiddenInput.value = value;
+      label.textContent = option.textContent.trim();
+
+      options.forEach((item) => {
+        item.classList.remove("is-selected");
+        item.removeAttribute("aria-selected");
+      });
+      option.classList.add("is-selected");
+      option.setAttribute("aria-selected", "true");
+
+      button.classList.remove("is-invalid");
+      closeSelect(select);
+    };
+
+    button.addEventListener("click", () => {
+      const isOpen = select.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) {
+        const selectedIndex = options.findIndex((option) =>
+          option.classList.contains("is-selected")
+        );
+        setHighlight(selectedIndex >= 0 ? selectedIndex : 0);
+        list.focus();
+      }
+    });
+
+    button.addEventListener("keydown", (event) => {
+      const { key } = event;
+      if (key === "ArrowDown" || key === "ArrowUp") {
+        event.preventDefault();
+        select.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+        const selectedIndex = options.findIndex((option) =>
+          option.classList.contains("is-selected")
+        );
+        setHighlight(selectedIndex >= 0 ? selectedIndex : 0);
+        list.focus();
+      }
+    });
+
+    list.addEventListener("keydown", (event) => {
+      const { key } = event;
+      const currentIndex = options.findIndex((option) =>
+        option.classList.contains("is-highlighted")
+      );
+
+      if (key === "ArrowDown") {
+        event.preventDefault();
+        const nextIndex = Math.min(currentIndex + 1, options.length - 1);
+        setHighlight(nextIndex);
+      }
+      if (key === "ArrowUp") {
+        event.preventDefault();
+        const nextIndex = Math.max(currentIndex - 1, 0);
+        setHighlight(nextIndex);
+      }
+      if (key === "Enter" || key === " ") {
+        event.preventDefault();
+        const option = options[currentIndex];
+        if (option) selectOption(option);
+        button.focus();
+      }
+      if (key === "Escape") {
+        event.preventDefault();
+        closeSelect(select);
+        button.focus();
+      }
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => selectOption(option));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!select.contains(event.target)) {
+        closeSelect(select);
+      }
+    });
+  });
+
   const form = document.getElementById("lead-form");
   if (form) {
     const feedback = form.querySelector(".form__feedback");
@@ -192,6 +302,7 @@
     }
 
     requiredFields.forEach((field) => {
+      if (field.type === "hidden") return;
       field.addEventListener("input", () => {
         field.classList.remove("is-invalid");
         setFeedback("");
@@ -209,7 +320,13 @@
       requiredFields.forEach((field) => {
         const value = field.value.trim();
         if (!value) {
-          field.classList.add("is-invalid");
+          const selectField = field.closest("[data-select]");
+          if (selectField) {
+            const trigger = selectField.querySelector(".select__button");
+            if (trigger) trigger.classList.add("is-invalid");
+          } else {
+            field.classList.add("is-invalid");
+          }
           hasError = true;
         }
       });
@@ -226,6 +343,20 @@
 
       setFeedback("Obrigado. Vamos retornar em até 24h úteis.");
       form.reset();
+
+      const selectsInForm = Array.from(form.querySelectorAll("[data-select]"));
+      selectsInForm.forEach((select) => {
+        const label = select.querySelector(".select__label");
+        const hiddenInput = select.querySelector("input[type=\"hidden\"]");
+        const options = Array.from(select.querySelectorAll(".select__option"));
+
+        if (hiddenInput) hiddenInput.value = "";
+        if (label) label.textContent = "Selecione";
+        options.forEach((option) => {
+          option.classList.remove("is-selected", "is-highlighted");
+          option.removeAttribute("aria-selected");
+        });
+      });
 
       if (submitBtn) {
         setTimeout(() => {

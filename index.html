@@ -361,12 +361,30 @@
 
                 <label class="field" for="lead-goal">
                   <span class="micro">Objetivo</span>
-                  <select class="input" id="lead-goal" name="goal" required>
-                    <option value="">Selecione</option>
-                    <option>Comprar</option>
-                    <option>Investir</option>
-                    <option>Alugar</option>
-                  </select>
+                  <div class="select" data-select>
+                    <button
+                      class="select__button input"
+                      type="button"
+                      id="lead-goal"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                    >
+                      <span class="select__label">Selecione</span>
+                      <span class="select__icon" aria-hidden="true"></span>
+                    </button>
+                    <ul class="select__list" role="listbox" aria-labelledby="lead-goal">
+                      <li class="select__option" role="option" data-value="Comprar">
+                        Comprar
+                      </li>
+                      <li class="select__option" role="option" data-value="Investir">
+                        Investir
+                      </li>
+                      <li class="select__option" role="option" data-value="Alugar">
+                        Alugar
+                      </li>
+                    </ul>
+                    <input type="hidden" id="lead-goal-input" name="goal" required />
+                  </div>
                 </label>
 
                 <label class="field" for="lead-details">
