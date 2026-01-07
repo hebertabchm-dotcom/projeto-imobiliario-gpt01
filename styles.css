@@ -558,6 +558,8 @@ textarea:focus-visible{
 }
 select.input{
   appearance: none;
+  color-scheme: dark;
+  background-color: rgba(12,12,14,0.65);
   background-image:
     linear-gradient(45deg, transparent 50%, rgba(231,224,214,0.9) 50%),
     linear-gradient(135deg, rgba(231,224,214,0.9) 50%, transparent 50%),
@@ -570,6 +572,19 @@ select.input{
   background-repeat: no-repeat;
   padding-right: 52px;
   cursor: pointer;
+  border-color: rgba(220,201,166,0.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 12px 24px rgba(0,0,0,0.35);
+}
+select.input:hover{
+  border-color: rgba(220,201,166,0.65);
+}
+select.input:focus{
+  border-color: rgba(220,201,166,0.75);
+  box-shadow:
+    0 0 0 3px rgba(220,201,166,0.16),
+    0 14px 28px rgba(0,0,0,0.4);
 }
 select.input option{
   background-color: #111113;
