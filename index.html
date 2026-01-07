@@ -10,17 +10,15 @@
     />
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Fonts (recomendado) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
-    <!-- NAV -->
     <header class="nav">
       <div class="container nav__inner">
         <a class="nav__brand" href="#top">LuxPrime</a>
@@ -36,15 +34,14 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <main id="top">
       <section class="hero">
-        <!-- Troque a imagem pelo seu arquivo: assets/hero.jpg -->
         <div
           class="hero__bg"
           style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2400&auto=format&fit=crop');"
           aria-hidden="true"
         ></div>
+        <div class="hero__glow" aria-hidden="true"></div>
         <div class="hero__shade" aria-hidden="true"></div>
 
         <div class="container hero__content">
@@ -69,7 +66,7 @@
             </div>
 
             <div style="margin-top: 18px" class="micro">
-              Tour 360° sob demanda · Atendimento por WhatsApp · Curadoria em 24h
+              Tour 360° sob demanda • Atendimento por WhatsApp • Curadoria em 24h
             </div>
           </div>
 
@@ -78,32 +75,33 @@
           <div class="hero__meta reveal reveal--d2">
             <div class="meta__block">
               <div class="micro">Regiões</div>
-              <div class="meta__title">Barra · Zona Sul · Niterói</div>
+              <div class="meta__title">Barra • Zona Sul • Niterói</div>
               <div class="meta__desc">Imóveis selecionados com foco em exclusividade.</div>
             </div>
 
             <div class="meta__block" style="text-align:right;">
               <div class="micro">Especialidade</div>
-              <div class="meta__title">Coberturas · Casas · Condomínios</div>
+              <div class="meta__title">Coberturas • Casas • Condomínios</div>
               <div class="meta__desc">Arquitetura, vista e acabamentos premium.</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TRUST / STATS -->
       <section class="section">
         <div class="container">
           <div class="card reveal reveal--d1" style="padding: 26px;">
             <div class="stats">
               <div class="stat">
                 <div class="small">SLA de resposta</div>
-                <div class="stat__value">Até 15 min</div>
+                <div class="stat__value" data-count="15" data-prefix="Até " data-suffix=" min">
+                  Até 15 min
+                </div>
                 <div class="stat__desc">Atendimento ágil e consultivo.</div>
               </div>
               <div class="stat">
                 <div class="small">Curadoria</div>
-                <div class="stat__value">100%</div>
+                <div class="stat__value" data-count="100" data-suffix="%">100%</div>
                 <div class="stat__desc">Somente imóveis alinhados ao perfil.</div>
               </div>
               <div class="stat">
@@ -121,7 +119,6 @@
         </div>
       </section>
 
-      <!-- IMOVEIS (GALERIA) -->
       <section id="imoveis" class="gallery">
         <div class="container">
           <div class="gallery__header reveal reveal--d1">
@@ -131,7 +128,7 @@
             </div>
             <div style="text-align:right;">
               <div class="micro">Seleção semanal</div>
-              <div class="small" style="margin-top:6px;">alto padrão · luxo · vista</div>
+              <div class="small" style="margin-top:6px;">alto padrão • luxo • vista</div>
             </div>
           </div>
 
@@ -149,7 +146,7 @@
               <div class="thumb__caption">
                 <div>
                   <div class="thumb__title">Cobertura Panorâmica</div>
-                  <div class="thumb__sub">Barra · 4 suítes · 310 m²</div>
+                  <div class="thumb__sub">Barra • 4 suítes • 310 m²</div>
                 </div>
                 <div class="micro">R$ 4,9M</div>
               </div>
@@ -166,7 +163,7 @@
               <div class="thumb__caption">
                 <div>
                   <div class="thumb__title">Casa Contemporânea</div>
-                  <div class="thumb__sub">Condomínio · 5 quartos · 420 m²</div>
+                  <div class="thumb__sub">Condomínio • 5 quartos • 420 m²</div>
                 </div>
                 <div class="micro">R$ 6,2M</div>
               </div>
@@ -183,7 +180,7 @@
               <div class="thumb__caption">
                 <div>
                   <div class="thumb__title">Apartamento Assinado</div>
-                  <div class="thumb__sub">Zona Sul · 3 suítes · 190 m²</div>
+                  <div class="thumb__sub">Zona Sul • 3 suítes • 190 m²</div>
                 </div>
                 <div class="micro">R$ 3,1M</div>
               </div>
@@ -200,7 +197,7 @@
               <div class="thumb__caption">
                 <div>
                   <div class="thumb__title">Minimalismo Premium</div>
-                  <div class="thumb__sub">Niterói · 4 quartos · 280 m²</div>
+                  <div class="thumb__sub">Niterói • 4 quartos • 280 m²</div>
                 </div>
                 <div class="micro">R$ 2,7M</div>
               </div>
@@ -213,7 +210,6 @@
         </div>
       </section>
 
-      <!-- CURADORIA -->
       <section id="curadoria" class="section">
         <div class="container">
           <div class="split">
@@ -271,7 +267,6 @@
         </div>
       </section>
 
-      <!-- DEPOIMENTOS -->
       <section id="depoimentos" class="section">
         <div class="container">
           <div class="gallery__header reveal reveal--d1">
@@ -314,7 +309,6 @@
         </div>
       </section>
 
-      <!-- CTA / CONTATO -->
       <section id="contato" class="section">
         <div class="container">
           <div class="card reveal reveal--d1" style="padding: 26px;">
@@ -360,15 +354,15 @@
           </div>
 
           <footer class="footer">
-            <div class="micro">© <span id="year"></span> LuxPrime Imóveis</div>
-            <div class="micro">Alto padrão · Curadoria · Discrição</div>
+            <div class="micro">&copy; <span id="year"></span> LuxPrime Imóveis</div>
+            <div class="micro">Alto padrão • Curadoria • Discrição</div>
           </footer>
         </div>
       </section>
     </main>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <a class="concierge" href="#contato">Concierge</a>
+
+    <script src="script.js"></script>
   </body>
 </html>
