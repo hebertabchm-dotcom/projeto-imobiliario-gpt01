@@ -852,3 +852,82 @@ textarea:focus-visible{
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
 }
+
+/* =========================
+   WhatsApp Floating Button (Lux)
+   ========================= */
+.wa-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+
+  display:flex;
+  align-items:center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(227,221,215,0.38);
+  background: rgba(11,11,12,0.70);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  color: var(--text-warm);
+
+  transform: translateY(0);
+  transition: transform var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out), background var(--t-base) var(--ease-out);
+}
+
+.wa-float:hover{
+  transform: translateY(-2px);
+  background: rgba(11,11,12,0.82);
+  border-color: rgba(227,221,215,0.60);
+}
+
+.wa-float__icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+
+  display:grid;
+  place-items:center;
+
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+
+  background: rgba(227,221,215,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.wa-float__label{
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text-warm);
+}
+
+.wa-float__pulse{
+  position:absolute;
+  inset: -6px;
+  border-radius: 999px;
+  border: 1px solid rgba(227,221,215,0.22);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: waPulse 1.8s var(--ease-out) infinite;
+}
+
+@keyframes waPulse{
+  0%{ transform: scale(0.98); opacity: 0.55; }
+  70%{ transform: scale(1.08); opacity: 0.10; }
+  100%{ transform: scale(1.08); opacity: 0; }
+}
+
+/* Mobile: encurta o rótulo */
+@media (max-width: 520px){
+  .wa-float__label{ display:none; }
+}

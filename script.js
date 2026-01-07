@@ -367,3 +367,18 @@
     });
   }
 })();
+
+<script>
+  // Mostra o botão após um instante (efeito premium)
+  window.addEventListener("load", () => {
+    const btn = document.querySelector(".wa-float");
+    if (!btn) return;
+    btn.style.opacity = "0";
+    btn.style.transform = "translateY(10px)";
+    requestAnimationFrame(() => {
+      btn.style.transition = "opacity 520ms var(--ease-out), transform 520ms var(--ease-out)";
+      btn.style.opacity = "1";
+      btn.style.transform = "translateY(0)";
+    });
+  });
+</script>
